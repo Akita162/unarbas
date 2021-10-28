@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Hide Document Scrollbar (Mozilla) */
+  scrollbar-width: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #ebebeb;
+}
+
+.title .container #logos img {
+  width: 45px;
+}
+
+.title {
+  padding: 10px 0px;
+  background-color: #131313;
+  display: flex;
+  position: relative;
+}
+
+#logos img {
+  position: absolute;
+}
+
+h3 {
+  font-weight: bold;
+  color: #ebebeb;
+  margin-left: 60px;
+  margin-top: 5px;
+}
+
+.jumbotron {
+  /* Hero Banner */
+  height: 450px;
+  background-image: url(../img/kampus.jpg);
+  background-position: bottom;
+  background-size: cover;
+}
+
+.slide-item {
+  border-radius: 8px;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 20em;
+  position: relative;
+  height: 34em;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.navbar-nav input {
+  margin-left: 150px;
+  width: 200px;
+}
+
+.navbar-search {
+  margin-left: auto;
+  text-align: right;
+}
+
+.hero img {
+  height: 16em;
+  overflow: hidden;
+  background-color: #ebebeb;
+}
+
+.slide-item .hero img {
+  width: 20em;
+  z-index: 0;
+}
+
+#promo {
+  height: 710px;
+  background-image: url(../img/distancing.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.desk {
+  width: 90%;
+}
+
+.card-body {
+  overflow: hidden;
+}
+
+.nama {
+  color: #242424;
+  font-weight: bold;
+  font-size: 18px;
+  width: 90%;
+  padding: 30px 10px;
+}
+
+.isi {
+  color: #242424;
+  font-weight: 500;
+  white-space: normal;
+  opacity: 0.8;
+}
+
+.actions {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  overflow: hidden;
+  background-color: #199bb5;
+  width: 100%;
+}
+
+.actions a {
+  text-decoration: none;
+  color: #ebebeb;
+}
+
+.jurusan {
+  line-height: 1.5em;
+  display: block;
+  overflow-x: auto;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #3c3c3c white;
+}
+
+.jurusan::-webkit-scrollbar {
+  height: 10px;
+  margin-top: 5px;
+}
+
+.jurusan::-webkit-scrollbar-track {
+  height: 1px;
+}
+
+.jurusan::-webkit-scrollbar-thumb {
+  background-color: #3c3c3c;
+  border-radius: 10px;
+}
+
+.jurusan::-webkit-scrollbar-button {
+  display: none;
+}
+
+.jurusan::-webkit-scrollbar-corner {
+  background-color: rgb(132, 0, 0);
+}
+
+.slider_container {
+  display: block;
+  white-space: nowrap;
+}
+
+.item {
+  margin-right: 10px;
+  display: inline-block;
+}
+
+#contact {
+  background-color: #1c1c1c;
+  padding-bottom: 30px;
+}
+footer #alamat #logo img {
+  width: 50px;
+}
