@@ -84,7 +84,7 @@
   </div>
   <div class="jurusan justify-content-center m-auto ">
     <div class="slider_container m-auto ">
-      <div class="item shadow-sm ">
+      <div class="item shadow-sm mx-2">
 
         <!-- menu -->
         <div class="card slide-item">
