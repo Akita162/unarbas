@@ -6,7 +6,8 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('home');
+        $data['css'] = ['all'];
+        return view('home', $data);
     }
 
     public function ci4()

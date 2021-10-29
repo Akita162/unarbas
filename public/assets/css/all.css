@@ -12,7 +12,7 @@ body {
   background-color: #ebebeb;
 }
 
-.title .container #logos img {
+#logos img {
   width: 45px;
 }
 
@@ -34,12 +34,11 @@ h3 {
   margin-top: 5px;
 }
 
-.jumbotron {
-  /* Hero Banner */
-  height: 450px;
-  background-image: url(../img/kampus.jpg);
-  background-position: bottom;
-  background-size: cover;
+/* Hero Banner */
+.jumbotron img {
+  height: 400px;
+  object-fit: cover;
+  object-position: center 80%;
 }
 
 .slide-item {
@@ -49,7 +48,7 @@ h3 {
   width: 20em;
   position: relative;
   height: 34em;
-  margin-right: 10px;
+  margin: 0 5px;
   overflow: hidden;
 }
 
@@ -72,13 +71,6 @@ h3 {
 .slide-item .hero img {
   width: 20em;
   z-index: 0;
-}
-
-#promo {
-  height: 710px;
-  background-image: url(../img/distancing.jpg);
-  background-position: center;
-  background-size: cover;
 }
 
 .desk {

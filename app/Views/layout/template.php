@@ -10,12 +10,16 @@
   <!-- Link Bootstrap (offline) -->
   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/bootstrap.css') ?>" />
 
-  <!-- My CSS -->
-  <link rel="stylesheet" href="<?= base_url('assets/css/all.css') ?>" />
+  <?php if (isset($css)) :
+    foreach ($css as $c) : ?>
+      <!-- My CSS -->
+      <link rel="stylesheet" href="<?= base_url("assets/css/$c.css") ?>" />
+  <?php endforeach;
+  endif; ?>
 
 </head>
 
-<body id="home">
+<body>
 
   <!-- Nav Bar -->
   <?= $this->include('layout/navbar') ?>
@@ -30,24 +34,30 @@
         <div class="col-md-4" id="alamat">
           <div class="row">
             <!-- Logo -->
-            <div class="col-md-2" id="logo"><img src="<?= base_url('assets/img/logoss.png') ?>" alt=""></div>
+            <div class="col-md-2" id="logo"><img src="<?= base_url('assets/img/logoss.png') ?>" alt="Logo Aruna Baswara"></div>
             <div class="col-md-10 d-flex align-items-center" id="univ">
               <h5 class="titlefoot">Universitas Aruna Baswara</h5>
             </div>
           </div>
-          <div class="row text-start">
-            <!-- alamat -->
-            <p>
-              Jl. Upa Celi No.1<br>
-              Dadaupa Gorge, Mondstadt<br>
-              Email : center@unarbas.ac.id<br>
-            </p>
-          </div>
+          <address class="text-start">
+            <!-- Alamat -->
+            <strong>Jl. Upa Celi No.1</strong>
+            <br>
+            Dadaupa Gorge, Mondstadt
+            <br>
+          </address>
+          <address class="text-start">
+            <strong>Email</strong>
+            <br>
+            <a href="mailto:center@unarbas.ac.id">center@unarbas.ac.id</a>
+            <br>
+            <strong>Telepon</strong>
+            <br>
+            <a href="tel:+25169696969">+25169696969</a>
+          </address>
         </div>
-
       </div>
     </div>
-
   </footer>
   <!-- End Footer -->
 
