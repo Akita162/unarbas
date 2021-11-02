@@ -41,17 +41,6 @@ h3 {
   object-position: center 80%;
 }
 
-.slide-item {
-  border-radius: 8px;
-  display: inline-block;
-  box-sizing: border-box;
-  width: 20em;
-  position: relative;
-  height: 34em;
-  margin: 0 5px;
-  overflow: hidden;
-}
-
 .navbar-nav input {
   margin-left: 150px;
   width: 200px;
@@ -68,13 +57,13 @@ h3 {
   background-color: #ebebeb;
 }
 
-.slide-item .hero img {
-  width: 20em;
-  z-index: 0;
-}
-
 .desk {
   width: 90%;
+}
+
+a.card {
+  text-decoration: none;
+  color: black;
 }
 
 .card-body {
@@ -94,20 +83,6 @@ h3 {
   font-weight: 500;
   white-space: normal;
   opacity: 0.8;
-}
-
-.actions {
-  position: absolute;
-  bottom: 0;
-  height: 50px;
-  overflow: hidden;
-  background-color: #199bb5;
-  width: 100%;
-}
-
-.actions a {
-  text-decoration: none;
-  color: #ebebeb;
 }
 
 .jurusan {
@@ -141,19 +116,36 @@ h3 {
   background-color: rgb(132, 0, 0);
 }
 
-.slider_container {
+.slide-container {
   display: block;
   white-space: nowrap;
 }
 
-.item {
-  display: inline-block;
+.slide-container p.card-text {
+  white-space: normal;
 }
 
-#contact {
-  background-color: #1c1c1c;
-  padding-bottom: 30px;
+.slide-item {
+  border-radius: 15px;
+  display: inline-block;
+  margin: 0 5px;
+  height: 500px;
+  width: 320px;
 }
-footer #alamat #logo img {
-  width: 50px;
+
+.card .card-img-top {
+  object-fit: cover;
+}
+
+.actions {
+  height: 50px;
+  background-color: #199bb5;
+}
+
+ul.address {
+  list-style-type: none;
+}
+
+ul.campus {
+  list-style-type: "> ";
 }
