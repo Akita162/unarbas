@@ -32,18 +32,19 @@
 
 <body>
 
-  <!-- Navbar And Header -->
+  <!-- Navbar Header -->
   <?= $this->include('layout/navbar') ?>
 
   <!-- Main Content -->
   <?= $this->renderSection('content') ?>
 
   <!-- Footer -->
-  <footer class="text-light py-2 bg-dark">
-    <div class="container-md">
+  <footer class="text-light pt-2 bg-dark">
+
+    <div class="container-md mb-2">
       <div class="row justify-content-between">
 
-        <div class="col-md-6" id="logo">
+        <div class="col-md-6">
           <div class="row">
 
             <div class="col-12 my-3">
@@ -53,7 +54,7 @@
 
             <address class="col-md-6">
               <div class="h5 fw-bold text-center mb-3">Our Contact</div>
-              <ul class="address">
+              <ul class="address list-unstyled">
                 <li class="mb-2">
                   <div class="fw-bold">Email</div>
                   <a href="mailto:center@unarbas.ac.id" class="text-white text-decoration-none">center@unarbas.ac.id</a>
@@ -92,6 +93,11 @@
 
       </div>
     </div>
+
+    <div class="container-xxl bg-secondary text-white text-center" style="background-color: var(--bs-gray-dark);">
+      Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2021 Aruna Baswara University
+    </div>
+
   </footer>
 
   <!-- Independent Script -->

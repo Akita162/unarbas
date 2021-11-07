@@ -15,19 +15,19 @@
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('home/') ?>">Beranda</a>
+            <a class="nav-link" href="<?= base_url('home') ?>">Beranda</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Akademik</a>
+            <a class="nav-link" href="<?= base_url('akademik') ?>">Akademik</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('pendaftaran/') ?>">Pendaftaran</a>
+            <a class="nav-link" href="<?= base_url('pendaftaran') ?>">Pendaftaran</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Mahasiswa</a>
+            <a class="nav-link" href="<?= base_url('kegiatan') ?>">Kegiatan</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tentang</a>
+            <a class="nav-link" href="<?= base_url('about') ?>">Tentang</a>
           </li>
         </ul>
         <form class="d-flex mx-2">

@@ -12,8 +12,9 @@ body {
   background-color: #ebebeb;
 }
 
-#logos img {
-  width: 45px;
+.flex-center {
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
@@ -23,42 +24,11 @@ body {
   position: relative;
 }
 
-#logos img {
-  position: absolute;
-}
-
-h3 {
-  font-weight: bold;
-  color: #ebebeb;
-  margin-left: 60px;
-  margin-top: 5px;
-}
-
-/* Hero Banner */
+/* Header */
 .jumbotron img {
   height: 400px;
   object-fit: cover;
   object-position: center 80%;
-}
-
-.navbar-nav input {
-  margin-left: 150px;
-  width: 200px;
-}
-
-.navbar-search {
-  margin-left: auto;
-  text-align: right;
-}
-
-.hero img {
-  height: 16em;
-  overflow: hidden;
-  background-color: #ebebeb;
-}
-
-.desk {
-  width: 90%;
 }
 
 a.card {
@@ -85,36 +55,25 @@ a.card {
   opacity: 0.8;
 }
 
-.jurusan {
+.fakultas {
   line-height: 1.5em;
-  display: block;
   overflow-x: auto;
-  box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: #3c3c3c white;
 }
 
-.jurusan::-webkit-scrollbar {
+.fakultas::-webkit-scrollbar {
   height: 10px;
-  margin-top: 5px;
 }
 
-.jurusan::-webkit-scrollbar-track {
-  height: 1px;
-}
-
-.jurusan::-webkit-scrollbar-thumb {
+.fakultas::-webkit-scrollbar-thumb {
   background-color: #3c3c3c;
   border-radius: 10px;
 }
 
-.jurusan::-webkit-scrollbar-button {
+/* .fakultas::-webkit-scrollbar-button {
   display: none;
-}
-
-.jurusan::-webkit-scrollbar-corner {
-  background-color: rgb(132, 0, 0);
-}
+} */
 
 .slide-container {
   display: block;
@@ -126,20 +85,21 @@ a.card {
 }
 
 .slide-item {
-  border-radius: 15px;
   display: inline-block;
   margin: 0 5px;
   height: 500px;
   width: 320px;
 }
 
-.card .card-img-top {
-  object-fit: cover;
+.slide-item .card {
+  border-radius: 15px;
+  overflow: hidden;
 }
 
-.actions {
-  height: 50px;
-  background-color: #199bb5;
+.card .card-img-top {
+  object-fit: cover;
+  width: 100%;
+  height: 160px;
 }
 
 ul.address {
@@ -148,4 +108,12 @@ ul.address {
 
 ul.campus {
   list-style-type: "> ";
+}
+
+.embed-map {
+  overflow-y: hidden;
+}
+
+.embed-map iframe {
+  margin-top: -80px;
 }

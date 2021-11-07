@@ -82,28 +82,22 @@
   <section class="mb-4 text-center">
 
     <div class="col-12 text-center p-4">
-      <h2>Jurusan</h2>
+      <h2>Fakultas</h2>
     </div>
 
-    <div class="jurusan justify-content-center">
-      <div class="slide-container row g-0 align-items-stretch">
-        <?php for ($i = 0; $i < 34; $i++) : ?>
+    <div class="fakultas row flex-nowrap">
+      <?php foreach ($fakultas as $fk) : ?>
 
-          <div class="slide-item col-3">
-            <div class="card">
-              <img src="<?= base_url('assets/img/jurusan/teknologi informasi.jpg') ?>" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title m-3">TEKNOLOGI INFORMATIKA</h5>
-                <p class="card-text trim-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error laboriosam sed architecto. Dolor veritatis recusandae soluta sint vel architecto nihil quos cumque perspiciatis. Maxime possimus quam delectus similique, soluta sunt!</p>
-              </div>
-              <div class="actions card-footer justify-content-center d-flex align-items-center">
-                <a href="#" class="text-decoration-none text-light">Show More</a>
-              </div>
-            </div>
+        <div class="col-md-3 mb-2">
+          <div class="card h-100">
+            <a href="<?= base_url("akademik/#$fk[id]") ?>" class="card-body text-decoration-none text-dark">
+              <img class="card-img-top mb-3" src="<?= base_url('assets/img/jurusan/' . $fk['thumbnail'] . '.jpg') ?>" alt="Fakultas <?= $fk['nama'] ?>">
+              <h5 class="card-title text-wrap"><?= $fk['nama'] ?></h5>
+            </a>
           </div>
-        <?php endfor; ?>
+        </div>
+      <?php endforeach; ?>
 
-      </div>
     </div>
 
   </section>
