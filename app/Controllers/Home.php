@@ -10,7 +10,7 @@ class Home extends BaseController
     {
         $data['fakultas'] = $this->fk->getFk();
         // return view('dump', $data);
-        return view('home/index', $data);
+        return view('home', $data);
     }
 
     public function ci4()

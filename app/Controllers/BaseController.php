@@ -49,5 +49,6 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $this->fk = new \App\Models\FakultasModel();
+        $this->prodi = new \App\Models\JurusanModel();
     }
 }
