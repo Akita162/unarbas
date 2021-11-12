@@ -6,7 +6,7 @@ use App\Models\JurusanModel;
 
 class Home extends BaseController
 {
-    public function index($slug = false)
+    public function index()
     {
         $data['fakultas'] = $this->fk->getFk();
         return view('home', $data);
