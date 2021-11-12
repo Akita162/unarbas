@@ -10,9 +10,4 @@ class Akademik extends BaseController
         $data['jurusan'] = $this->prodi->getProdi('kode_fk');
         return view('akademik/index', $data);
     }
-
-    public function fakultas($fakultas)
-    {
-        return $fakultas;
-    }
 }

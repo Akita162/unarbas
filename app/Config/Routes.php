@@ -33,7 +33,6 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 $routes->addRedirect('/', 'home/');
-$routes->get('akademik/(:segment)', 'akademik::fakultas/$1');
 
 /*
  * --------------------------------------------------------------------
