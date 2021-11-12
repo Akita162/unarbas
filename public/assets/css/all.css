@@ -1,9 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
-:root {
-  /* Hide Document Scrollbar (Mozilla) */
-  scrollbar-width: none;
-}
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
 
 body {
   font-family: "Poppins", sans-serif;
@@ -66,14 +61,26 @@ a.card {
   height: 10px;
 }
 
-.fakultas::-webkit-scrollbar-thumb {
-  background-color: #3c3c3c;
-  border-radius: 10px;
+#akademikSidebar #fkMenu::-webkit-scrollbar {
+  width: 15px;
 }
 
-/* .fakultas::-webkit-scrollbar-button {
+.fakultas::-webkit-scrollbar-thumb,
+#akademikSidebar #fkMenu::-webkit-scrollbar-thumb {
+  background-color: #3c3c3c;
+  border-radius: 30px;
+  border: 1px solid black;
+}
+
+.fakultas::-webkit-scrollbar-thumb,
+#akademikSidebar #fkMenu::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.fakultas::-webkit-scrollbar-button,
+#akademikSidebar #fkMenu::-webkit-scrollbar-button {
   display: none;
-} */
+}
 
 .slide-container {
   display: block;
@@ -116,4 +123,34 @@ ul.campus {
 
 .embed-map iframe {
   margin-top: -80px;
+}
+
+/* Akademik Page */
+#akademikSidebar,
+#AkademikContainer {
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#akademikSidebar #fkMenu {
+  overflow-y: auto;
+  max-height: 96vh;
+  scrollbar-width: thin;
+  scrollbar-color: #3c3c3c rgba(255, 255, 255, 0.5);
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.sidebar-menu-dropdown .accordion-item,
+.sidebar-menu-dropdown .accordion-button,
+.sidebar-menu-dropdown .list-group-item,
+.sidebar-menu-dropdown .accordion-button:not(.collapsed) {
+  background-color: transparent;
+  color: #212529;
 }

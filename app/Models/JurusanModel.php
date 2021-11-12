@@ -8,12 +8,18 @@ class JurusanModel extends Model
 {
     protected $table = 'jurusan';
 
-    public function getJurusan($slug = false)
+    public function getProdi($groupBy = false)
     {
-        if ($slug === false) {
-            return $this->findAll();
+        $prodi = $this->findAll();
+        if ($groupBy != false) {
+            $arr = [];
+            foreach ($prodi as $val) {
+                $k = $val[$groupBy];
+                unset($val[$groupBy]);
+                $arr[$k][] = $val;
+            }
+            $prodi = $arr;
         }
-
-        return $this->where(['fakultas_id' => $slug])->first();
+        return $prodi;
     }
 }

@@ -13,19 +13,19 @@
 
   <!-- CSS  -->
   <link rel="stylesheet" href="<?= base_url("assets/css/all.css") ?>" />
-  <?php if (isset($css)) :
-    foreach ($css as $c) : ?>
-      <link rel="stylesheet" href="<?= base_url("assets/css/$c.css") ?>" />
-  <?php endforeach;
-  endif; ?>
+  <?php if (isset($css)) {
+    foreach ($css as $c) {
+      link_tag("assets/css/$c.css");
+    }
+  } ?>
 
   <!-- JQuery based Script -->
   <script type="text/javascript" src="<?= base_url('assets/js/main.js') ?>"></script>
-  <?php if (isset($jqscript)) :
-    foreach ($jqscript as $jq) : ?>
-      <script src="<?= base_url("assets/js/$jq.js") ?>"></script>
-  <?php endforeach;
-  endif; ?>
+  <?php if (isset($jqscript)) {
+    foreach ($jqscript as $jq) {
+      script_tag("assets/js/$jq.js");
+    }
+  } ?>
 
   <title>Web Universitas</title>
 </head>
@@ -101,11 +101,11 @@
   </footer>
 
   <!-- Independent Script -->
-  <?php if (isset($script)) :
-    foreach ($script as $js) : ?>
-      <script src="<?= base_url("assets/js/$js.js") ?>"></script>
-  <?php endforeach;
-  endif; ?>
+  <?php if (isset($script)) {
+    foreach ($script as $js) {
+      script_tag("assets/js/$js.js");
+    }
+  } ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

@@ -9,7 +9,6 @@ class Home extends BaseController
     public function index($slug = false)
     {
         $data['fakultas'] = $this->fk->getFk();
-        // return view('dump', $data);
         return view('home', $data);
     }
 
