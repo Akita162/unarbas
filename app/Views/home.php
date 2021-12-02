@@ -2,6 +2,12 @@
 
 <?= $this->section('content') ?>
 <div class="container-xxl">
+  <?php if (session()->getFlashdata('registrasi')) : ?>
+    <div class="alert mt-5 position-absolute top-0 start-50 translate-middle-x alert-success alert-dismissible fade show" role="alert">
+      <?= session()->getFlashdata('registrasi') ?>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <?php endif; ?>
 
   <!-- Hero Banner -->
   <div class="jumbotron img-fluid">
@@ -79,7 +85,7 @@
   </main>
 
   <!-- Jurusan -->
-  <section class="mb-4 text-center">
+  <section class="container-xxl mb-4 text-center">
 
     <div class="col-12 text-center p-4">
       <h2>Fakultas</h2>
@@ -90,7 +96,7 @@
 
         <div class="col-md-3 mb-2">
           <div class="card h-100">
-            <a href="<?= base_url("akademik/#$fk[id]") ?>" class="card-body text-decoration-none text-dark">
+            <a href="<?= base_url("akademik/#$fk[kode]Accordion") ?>" class="card-body text-decoration-none text-dark">
               <img class="card-img-top mb-3" src="<?= base_url('assets/img/jurusan/' . $fk['thumbnail'] . '.jpg') ?>" alt="Fakultas <?= $fk['nama'] ?>">
               <h5 class="card-title text-wrap"><?= $fk['nama'] ?></h5>
             </a>

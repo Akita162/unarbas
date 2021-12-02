@@ -24,9 +24,6 @@
             <a class="nav-link" href="<?= base_url('pendaftaran') ?>">Pendaftaran</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('kegiatan') ?>">Kegiatan</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="<?= base_url('about') ?>">Tentang</a>
           </li>
         </ul>

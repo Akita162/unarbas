@@ -13,7 +13,7 @@
       <div class="accordion accordion-flush" id="fkMenu">
         <?php foreach ($fakultas as $fk) :
           ${$fk['kode']} = $jurusan[$fk['kode']] ?>
-  
+
           <div class="accordion-item">
             <h2 class="accordion-header" id="<?= $fk['kode'] ?>Accordion">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $fk['kode'] ?>Menu" aria-expanded="false" aria-controls="<?= $fk['kode'] ?>Menu"><?= $fk['nama'] ?></button>
@@ -29,12 +29,12 @@
             </div>
           </div>
         <?php endforeach; ?>
-  
+
       </div>
     </div>
   </div>
 
-  <div class="container px-3 py-5" id="AkademikContainer">
+  <div class="container px-3 py-5" id="akademikContainer">
     <?php foreach ($fakultas as $fk) : ?>
       <h2 class="mb-2">Fakultas <?= $fk['nama'] ?></h2>
       <?php foreach (${$fk['kode']} as $prodi) : ?>

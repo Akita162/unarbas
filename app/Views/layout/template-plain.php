@@ -13,31 +13,27 @@
 
   <!-- CSS  -->
   <link rel="stylesheet" href="<?= base_url("assets/css/all.css") ?>" />
-  <?php if (isset($css)) :
-    foreach ($css as $c) : ?>
-      <link rel="stylesheet" href="<?= base_url("assets/css/$c.css") ?>" />
-  <?php endforeach;
-  endif; ?>
+  <?php if (isset($style)) {
+    if (is_array($style)) {
+      foreach ($style as $css) {
+        link_tag("assets/css/$css.css");
+      }
+    } else {
+      link_tag("assets/css/$style.css");
+    }
+  } ?>
 
   <!-- JQuery based Script -->
   <script type="text/javascript" src="<?= base_url('assets/js/main.js') ?>"></script>
-  <?php if (isset($jqscript)) :
-    foreach ($jqscript as $jq) : ?>
-      <script src="<?= base_url("assets/js/$jq.js") ?>"></script>
-  <?php endforeach;
-  endif; ?>
 
   <title>Web Universitas</title>
 </head>
 
 <body>
-  <div class="container-xxl">
-    <div class="alert position-absolute top-0 start-50 translate-middle-x alert-success alert-dismissible fade show" role="alert">
-      EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-  </div>
+  <!-- Main Content -->
+  <?= $this->renderSection('content') ?>
 
+  <!-- Independent Script -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

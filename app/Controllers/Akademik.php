@@ -8,6 +8,6 @@ class Akademik extends BaseController
     {
         $data['fakultas'] = $this->fk->getFk();
         $data['jurusan'] = $this->prodi->getProdi('kode_fk');
-        return view('akademik/index', $data);
+        return view('akademik', $data);
     }
 }

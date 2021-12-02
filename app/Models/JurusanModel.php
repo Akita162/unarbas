@@ -8,14 +8,14 @@ class JurusanModel extends Model
 {
     protected $table = 'jurusan';
 
-    public function getProdi($groupBy = false)
+    public function getProdi($GroupField = false)
     {
         $prodi = $this->findAll();
-        if ($groupBy != false) {
+        if ($GroupField != false) {
             $arr = [];
             foreach ($prodi as $val) {
-                $k = $val[$groupBy];
-                unset($val[$groupBy]);
+                $k = $val[$GroupField];
+                unset($val[$GroupField]);
                 $arr[$k][] = $val;
             }
             $prodi = $arr;

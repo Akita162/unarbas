@@ -35,7 +35,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['url', 'html'];
+    protected $helpers = ['url', 'html', 'form'];
 
     /**
      * Constructor.
@@ -48,6 +48,8 @@ class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        session();
+        $this->validator = \Config\Services::validation();
         $this->fk = new \App\Models\FakultasModel();
         $this->prodi = new \App\Models\JurusanModel();
     }
