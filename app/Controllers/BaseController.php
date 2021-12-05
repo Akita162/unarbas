@@ -52,5 +52,6 @@ class BaseController extends Controller
         $this->validator = \Config\Services::validation();
         $this->fk = new \App\Models\FakultasModel();
         $this->prodi = new \App\Models\JurusanModel();
+        $this->reg = new \App\Models\PendaftaranModel();
     }
 }

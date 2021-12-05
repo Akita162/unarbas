@@ -14,13 +14,11 @@
   <!-- CSS  -->
   <link rel="stylesheet" href="<?= base_url("assets/css/all.css") ?>" />
   <?php if (isset($style)) {
-    if (is_array($style)) {
-      foreach ($style as $css) {
-        link_tag("assets/css/$css.css");
-      }
-    } else {
-      link_tag("assets/css/$style.css");
+    $style = explode(',', $style);
+    foreach ($style as $css) {
+      echo link_tag("assets/css/$css.css");
     }
+    unset($css, $style);
   } ?>
 
   <!-- JQuery based Script -->

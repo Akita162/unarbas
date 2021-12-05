@@ -22,4 +22,9 @@ class JurusanModel extends Model
         }
         return $prodi;
     }
+
+    public function getBiaya($id = null)
+    {
+        return $this->find($id);
+    }
 }

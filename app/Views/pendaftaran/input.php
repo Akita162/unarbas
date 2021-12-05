@@ -14,7 +14,7 @@
   </div>
 
   <form class="row g-4 needs-validation" method="post" id="pendaftaran" spellcheck="false">
-    <?php csrf_field() ?>
+    <?= csrf_field() ?>
 
     <div class="col-md-6">
       <label for="nisn" class="form-label">NISN</label>
@@ -52,7 +52,7 @@
 
     <div class="col-md-6">
       <label for="nohp" class="form-label">Nomor Handphone</label>
-      <input type="number" class="form-control <?= ($validation->hasError('nohp')) ? 'is-invalid' : '' ?>" value="<?= old('nohp') ?>" name="nohp" id="nohp" requireds>
+      <input type="text" class="form-control <?= ($validation->hasError('nohp')) ? 'is-invalid' : '' ?>" value="<?= old('nohp') ?>" name="nohp" id="nohp" requireds>
       <div class="invalid-feedback">
         <?= $validation->getError('nohp'); ?>
       </div>
@@ -60,7 +60,7 @@
 
     <div class="col-md-6">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>" value="<?= old('email') ?>" name="email" id="email" requireds>
+      <input type="text" class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : '' ?>" value="<?= old('email') ?>" name="email" id="email" requireds>
       <div class="invalid-feedback">
         <?= $validation->getError('email'); ?>
       </div>
@@ -88,7 +88,7 @@
     </div>
 
     <div class="col-12 d-flex justify-content-end">
-      <button type="submit" class="btn btn-dark w-100">Daftar</button>
+      <button type="submit" name="daftar" value="true" class="btn btn-dark w-100">Daftar</button>
     </div>
 
   </form>

@@ -158,3 +158,14 @@ input#nohp::-webkit-inner-spin-button {
   display: none;
   margin: 0;
 }
+
+/* Page Metode Pembayaran */
+#payment .card {
+  border: none;
+}
+/* #payment .btn-light:focus {
+  color: #212529;
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+  box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+} */
