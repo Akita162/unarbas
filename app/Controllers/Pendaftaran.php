@@ -64,7 +64,7 @@ class Pendaftaran extends BaseController
             ])) {
                 $prodi = $this->request->getPost('jurusan', true);
                 $nisn = $this->request->getPost('nisn', true);
-                $row = [
+                $this->reg->daftar([
                     'nisn' => $nisn,
                     'asal_sekolah' => $this->request->getPost('sma', true),
                     'nama' => $this->request->getPost('nama', true),
@@ -74,8 +74,7 @@ class Pendaftaran extends BaseController
                     'email' => $this->request->getPost('email'),
                     'id_jurusan' => $prodi,
                     'dibayar' => false,
-                ];
-                $this->reg->daftar($row);
+                ]);
                 return redirect()->to('pendaftaran/pembayaran')
                     ->with('nisn', $nisn)
                     ->with('jurusan', $prodi);
@@ -84,7 +83,6 @@ class Pendaftaran extends BaseController
         }
 
         $data = [
-            'fakultas' => $this->fk->getFk(),
             'jurusan' => $this->prodi->getProdi(),
             'validation' => $this->validator
         ];
