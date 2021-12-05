@@ -99,13 +99,12 @@ class Pendaftaran extends BaseController
 
         $nisn = session()->getFlashdata('nisn');
         $prodi = session()->getFlashdata('jurusan');
+        session()->setFlashdata('reg_id', $this->reg->getRegId($nisn));
 
         helper('number');
         $data = [
             'validation' => $this->validator,
-            'regid' => $this->reg->getRegId($nisn),
             'biaya' => $this->prodi->getBiaya($prodi),
-            'biaya' => 999999999,
             'diskon' => 20
         ];
         return view('pendaftaran/pembayaran', $data);
@@ -113,6 +112,7 @@ class Pendaftaran extends BaseController
 
     private function proses()
     {
+        $transaksi = new \App\Models\TransaksiModel;
         if ($this->request->getPost('payment', true) === 'paypal') {
             if ($this->validate([
                 'paypal' => [
@@ -123,8 +123,15 @@ class Pendaftaran extends BaseController
                     ],
                 ]
             ])) {
-
-                return redirect()->to('/')->with('registrasi', 'Silahkan Melakukan pembayaran ke Vendor Terdekat');
+                $transaksi->konfirmasi([
+                    'id_pendaftar' => session()->getFlashdata('reg_id'),
+                    'payment_type' => $this->request->getPost('payment', true),
+                    'email_paypal' => $this->request->getPost('paypal', true),
+                    'rek_num' => null,
+                    'exp_date' => null,
+                    'sc_code' => null,
+                ]);
+                return redirect()->to('/')->with('registrasi', 'Transaksi sedang di proses Silahkan tunggu beberapa hari');
             }
         } else if ($this->request->getPost('payment', true) === 'rekening') {
             if ($this->validate([
@@ -135,15 +142,32 @@ class Pendaftaran extends BaseController
                         'valid_cc_number' => 'Masukkan Nomor rekening dengan benar',
                     ],
                 ],
-                'expire_date' => [ #format expire date visa !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    'rules' => 'required|valid_date[]',
+                'expiry_date' => [
+                    'rules' => 'required|valid_date[m/y]',
                     'errors' => [
-                        'required' => 'Tanggal Kadaluwarsa Harus Dimasukkan',
-                        'valid_date[]' => 'Masukkan Tanggal dengan benar',
+                        'required' => 'Tanggal Kadaluarsa Harus Dimasukkan',
+                        'valid_date' => 'Masukkan Tanggal Kadaluarsa dengan benar',
+                    ],
+                ],
+                'cvc' => [
+                    'rules' => 'required|min_length[3]|max_length[4]|numeric',
+                    'errors' => [
+                        'required' => 'Nomor CVC/CVV Harus Dimasukkan',
+                        'numeric' => 'Masukkan Nomor CVC/CVV dengan benar',
+                        'min_length' => 'Masukkan Nomor CVC/CVV paling sedikit 3 digit',
+                        'max_length' => 'Masukkan Nomor CVC/CVV paling banyak 4 digit',
                     ],
                 ],
             ])) {
-                return redirect()->to('/')->with('registrasi', 'Silahkan Melakukan pembayaran ke Vendor Terdekat');
+                $transaksi->konfirmasi([
+                    'id_pendaftar' => session()->getFlashdata('reg_id'),
+                    'payment_type' => $this->request->getPost('payment', true),
+                    'email_paypal' => null,
+                    'rek_num' => $this->request->getPost('rekening', true),
+                    'exp_date' => $this->request->getPost('expiry_date', true),
+                    'sc_code' => $this->request->getPost('cvc', true),
+                ]);
+                return redirect()->to('/')->with('registrasi', 'Transaksi sedang di proses Silahkan tunggu beberapa hari');
             }
         }
         return redirect()->back()->withInput();

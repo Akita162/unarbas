@@ -11,8 +11,6 @@
 
     <?= csrf_field() ?>
 
-    <input type="hidden" name="register_id" value="<?= $regid ?>">
-
     <div class="col-md-6">
 
       <div class="card">
@@ -56,10 +54,10 @@
               </div>
 
               <div class="col-md-6 mb-3">
-                <label for="expireDate" class="form-label small">Tanggal Kadaluwarsa</label>
+                <label for="expireDate" class="form-label small">Tanggal Kadaluarsa</label>
                 <div class="input-group">
                   <span class="input-group-text" id="expireMark"><i class="fa fa-calendar"></i></span>
-                  <input type="datetime" name="expire_date" id="expireDate" class="form-control <?= ($validation->hasError('expire_date')) ? 'is-invalid' : '' ?>" aria-describedby="expireMark">
+                  <input type="datetime" name="expiry_date" id="expireDate" class="form-control <?= ($validation->hasError('expire_date')) ? 'is-invalid' : '' ?>" placeholder="MM/YY" aria-describedby="expireMark">
                   <div class="invalid-feedback"><?= $validation->getError('expire_date') ?></div>
                 </div>
               </div>
