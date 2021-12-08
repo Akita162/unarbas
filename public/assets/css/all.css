@@ -124,11 +124,13 @@ ul.campus {
 #akademikSidebar,
 #akademikContainer,
 #pendaftaranContainer,
+#aboutt,
 form#pendaftaran input.form-control:not(.is-invalid),
 form#pendaftaran select.form-select:not(.is-invalid) {
   background-color: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(0, 0, 0, 0.125);
 }
+
 
 #akademikSidebar #fkMenu {
   overflow-y: auto;
