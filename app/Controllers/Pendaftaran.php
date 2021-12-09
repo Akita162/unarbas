@@ -9,7 +9,7 @@ class Pendaftaran extends BaseController
         if ($this->request->getPost('daftar') == true) {
             if ($this->validate([
                 'nisn' => [
-                    'rules' => 'required|is_unique[pendaftaran.nisn]',
+                    'rules' => 'required|is_unique[pendaftar.nisn]',
                     'errors' => [
                         'required' => 'NISN harus diisi',
                         'is_unique' => 'NISN sudah terdaftar'
