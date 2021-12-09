@@ -91,7 +91,10 @@
         <div class="card-header p-3 d-flex">
           <span class="card-title h5 mb-0">Total</span>
           <span class="card-title h5 mb-0 ms-auto">
-            <?= number_to_currency($biaya, 'IDR') ?>
+            <?= 
+            dd($biaya)
+            // number_to_currency($biaya, 'IDR')
+            ?>
           </span>
         </div>
 

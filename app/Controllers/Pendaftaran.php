@@ -62,22 +62,22 @@ class Pendaftaran extends BaseController
                     ]
                 ],
             ])) {
-                $prodi = $this->request->getPost('jurusan', true);
-                $nisn = $this->request->getPost('nisn', true);
+                $prodi = $this->request->getPost('jurusan');
+                $nisn = $this->request->getPost('nisn');
                 $this->reg->daftar([
                     'nisn' => $nisn,
-                    'asal_sekolah' => $this->request->getPost('sma', true),
-                    'nama' => $this->request->getPost('nama', true),
-                    'gender' => $this->request->getPost('gender', true),
+                    'asal_sekolah' => $this->request->getPost('sma'),
+                    'nama' => $this->request->getPost('nama'),
+                    'gender' => $this->request->getPost('gender'),
                     'tgl_lahir' => $this->request->getPost('bday'),
-                    'nohp' => $this->request->getPost('nohp', true),
+                    'nohp' => $this->request->getPost('nohp'),
                     'email' => $this->request->getPost('email'),
                     'id_jurusan' => $prodi,
                     'dibayar' => false,
                 ]);
-                return redirect()->to('pendaftaran/pembayaran')
-                    ->with('nisn', $nisn)
-                    ->with('jurusan', $prodi);
+                session()->set('jurusan', $prodi);
+                session()->set('nisn', $nisn);
+                return redirect()->to('pendaftaran/pembayaran');
             }
             return redirect()->back()->withInput();
         }
@@ -95,8 +95,9 @@ class Pendaftaran extends BaseController
             $this->proses();
         }
 
-        $nisn = session()->getFlashdata('nisn');
-        $prodi = session()->getFlashdata('jurusan');
+        $nisn = session()->get('nisn');
+        $prodi = session()->get('jurusan');
+        dd($prodi);
         session()->setFlashdata('reg_id', $this->reg->getRegId($nisn));
 
         helper('number');
@@ -110,6 +111,8 @@ class Pendaftaran extends BaseController
 
     private function proses()
     {
+        session()->destroy('jurusan');
+        session()->destroy('nisn');
         $transaksi = new \App\Models\TransaksiModel;
         if ($this->request->getPost('payment', true) === 'paypal') {
             if ($this->validate([
