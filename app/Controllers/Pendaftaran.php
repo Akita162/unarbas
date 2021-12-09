@@ -91,13 +91,9 @@ class Pendaftaran extends BaseController
 
     public function pembayaran()
     {
-        if ($this->request->getPost('konfirmasi_pembayaran') == true) {
-            $this->proses();
-        }
-
         $nisn = session()->get('nisn');
         $prodi = session()->get('jurusan');
-        session()->setFlashdata('reg_id', $this->reg->getRegId($nisn));
+        session()->set('reg_id', $this->reg->getRegId($nisn));
 
         helper('number');
         $data = [
@@ -108,15 +104,13 @@ class Pendaftaran extends BaseController
         return view('pendaftaran/pembayaran', $data);
     }
 
-    private function proses()
+    public function proses()
     {
-        session()->destroy('jurusan');
-        session()->destroy('nisn');
         $transaksi = new \App\Models\TransaksiModel;
-        if ($this->request->getPost('payment', true) === 'paypal') {
+        if ($this->request->getPost('payment') === 'paypal') {
             if ($this->validate([
                 'paypal' => [
-                    'rules' => 'required|regex_match[/^[a-zA-Z0-9.]+(@paypal.com)$/]',
+                    'rules' => 'required|regex_match[/^[a-zA-Z0-9\.]+(@paypal.com)$/]',
                     'errors' => [
                         'required' => 'Email paypal Harus Diisi',
                         'regex_match' => 'gunakan Email paypal',
@@ -124,22 +118,23 @@ class Pendaftaran extends BaseController
                 ]
             ])) {
                 $transaksi->konfirmasi([
-                    'id_pendaftar' => session()->getFlashdata('reg_id'),
-                    'payment_type' => $this->request->getPost('payment', true),
-                    'email_paypal' => $this->request->getPost('paypal', true),
+                    'id_pendaftar' => session()->get('reg_id'),
+                    'payment_type' => $this->request->getPost('payment'),
+                    'email_paypal' => $this->request->getPost('paypal'),
                     'rek_num' => null,
                     'exp_date' => null,
                     'sc_code' => null,
                 ]);
                 return redirect()->to('/')->with('registrasi', 'Transaksi sedang di proses Silahkan tunggu beberapa hari');
             }
-        } else if ($this->request->getPost('payment', true) === 'rekening') {
+        } else if ($this->request->getPost('payment') === 'rekening') {
             if ($this->validate([
                 'rekening' => [
-                    'rules' => 'required|valid_cc_number[visa]',
+                    'rules' => 'required|numeric|exact_length[16]',
                     'errors' => [
                         'required' => 'Nomor rekening Harus Diisi',
-                        'valid_cc_number' => 'Masukkan Nomor rekening dengan benar',
+                        'numeric' => 'Nomor rekening harus berisi nomor',
+                        'exact_length' => 'Nomor rekening harus 16 digit',
                     ],
                 ],
                 'expiry_date' => [
@@ -159,14 +154,15 @@ class Pendaftaran extends BaseController
                     ],
                 ],
             ])) {
-                $transaksi->konfirmasi([
-                    'id_pendaftar' => session()->getFlashdata('reg_id'),
-                    'payment_type' => $this->request->getPost('payment', true),
-                    'email_paypal' => null,
-                    'rek_num' => $this->request->getPost('rekening', true),
-                    'exp_date' => $this->request->getPost('expiry_date', true),
-                    'sc_code' => $this->request->getPost('cvc', true),
-                ]);
+                // DATA DIKIRIM KE BANK
+                // $transaksi->konfirmasi([
+                //     'id_pendaftar' => session()->get('reg_id'),
+                //     'payment_type' => $this->request->getPost('payment'),
+                //     'email_paypal' => null,
+                //     'rek_num' => $this->request->getPost('rekening'),
+                //     'exp_date' => $this->request->getPost('expiry_date'),
+                //     'sc_code' => $this->request->getPost('cvc'),
+                // ]);
                 return redirect()->to('/')->with('registrasi', 'Transaksi sedang di proses Silahkan tunggu beberapa hari');
             }
         }

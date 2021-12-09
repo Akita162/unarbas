@@ -7,7 +7,7 @@
   }
 </style>
 <div class="container my-5" style="min-height: 80vh;">
-  <form method="post" class="row g-3">
+  <form action="/pendaftaran/proses" method="post" class="row g-3">
 
     <?= csrf_field() ?>
 
@@ -106,7 +106,7 @@
         </div>
 
         <div class="card-footer text-center">
-          <button type="submit" name="konfirmasi_pembayaran" value="true" class="btn btn-warning w-100 p-2 border-2 mb-2">Konfirmasi Pembayaran</button>
+          <button type="submit" value="true" class="btn btn-warning w-100 p-2 border-2 mb-2">Konfirmasi Pembayaran</button>
           <a href="#">Punya Kode Promo?</a>
         </div>
 
