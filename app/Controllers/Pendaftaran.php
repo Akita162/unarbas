@@ -97,7 +97,6 @@ class Pendaftaran extends BaseController
 
         $nisn = session()->get('nisn');
         $prodi = session()->get('jurusan');
-        dd($prodi);
         session()->setFlashdata('reg_id', $this->reg->getRegId($nisn));
 
         helper('number');
