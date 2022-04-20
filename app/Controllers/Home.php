@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\JurusanModel;
-
 class Home extends BaseController
 {
     public function index()

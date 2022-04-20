@@ -25,6 +25,6 @@ class JurusanModel extends Model
 
     public function getBiaya($id = null)
     {
-        return $this->find($id);
+        return $this->find($id)['harga'];
     }
 }
