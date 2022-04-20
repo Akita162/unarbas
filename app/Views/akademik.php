@@ -36,7 +36,7 @@
 
   <div class="container px-3 py-5" id="akademikContainer">
     <?php foreach ($fakultas as $fk) : ?>
-      <h2 class="mb-2">Fakultas <?= $fk['nama'] ?></h2>
+      <h2 class="mb-4">Fakultas <?= $fk['nama'] ?></h2>
       <?php foreach (${$fk['kode']} as $prodi) : ?>
         <div class="mb-3">
           <h3 id="prodi<?= $prodi['id'] ?>"><?= $prodi['nama'] ?></h3>

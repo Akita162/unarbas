@@ -91,7 +91,7 @@
       </div>
     </div>
 
-    <div class="container-xxl bg-secondary text-white text-center" style="background-color: var(--bs-gray-dark);">
+    <div class="bg-secondary text-white text-center" style="background-color: var(--bs-gray-dark);">
       Copyright <i class="fa fa-copyright" aria-hidden="true"></i> 2021 Aruna Baswara University
     </div>
 
